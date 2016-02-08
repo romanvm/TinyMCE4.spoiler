@@ -32,7 +32,7 @@ The plugin adds the following html code to an authored web page:
 <div class="spoiler">
   <div class="spoiler-toggle">Spoiler caption</div>
   <div class="spoiler-text">
-    <p>Spoiler text</p>
+    Spoiler text
   </div>
 </div>
 ```
