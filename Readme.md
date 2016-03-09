@@ -14,6 +14,7 @@ tinymce.init({
   plugins: "spoiler",
   menubar: "format",
   toolbar: "spoiler-add spoiler-remove",
+  extended_valid_elements: "span[class]"
 });
 ```
 
