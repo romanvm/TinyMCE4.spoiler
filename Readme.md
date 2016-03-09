@@ -13,8 +13,7 @@ tinymce.init({
   selector: "textarea",  // change this value according to your HTML
   plugins: "spoiler",
   menubar: "format",
-  toolbar: "spoiler-add spoiler-remove",
-  extended_valid_elements: "span[class]"
+  toolbar: "spoiler-add spoiler-remove"
 });
 ```
 
