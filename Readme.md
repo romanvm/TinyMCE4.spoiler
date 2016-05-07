@@ -40,7 +40,7 @@ The plugin adds the following html code to an authored web page:
 To remove a spoiler, click on a spoiler block and then click "Remove spoiler". The spoiler block will be converted
 to a plain paragraph.
 
-For spoiler blocks to work properly you need to add to your web pages CSS/JavaScript
+**Note**: For spoiler blocks to work properly you need to add to your web pages CSS/JavaScript
 code that defines look and behavior of the spoiler blocks.
 
 [An example of a spoiler on a web page using JQuery](https://jsfiddle.net/romanvm/7w9shc27/).
