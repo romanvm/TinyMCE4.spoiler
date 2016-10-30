@@ -17,6 +17,21 @@ tinymce.init({
 });
 ```
 
+Alternatively, you can place the plugin outside the TinyMCE folder
+and add the plugin using `external_plugins` option of TinyMCE 4:
+
+```javascript
+tinymce.init({
+  selector: "textarea",  // change this value according to your HTML
+  external_plugins: {
+            spoiler: '../spoiler/plugin.js'
+        }
+  menubar: "format",
+  toolbar: "spoiler-add spoiler-remove"
+});
+```
+**Note**: The path to the plugin file is relative to the main TinyMCE JavaScript file.
+
 The plugin accepts an optional `spoiler_caption` configuration parameter that allows you to define
 a custom caption for spoiler blocks (default: "Spoiler!").
 The parameter accepts both plain text and html code, for example `<strong>Spoiler!</strong>`.
