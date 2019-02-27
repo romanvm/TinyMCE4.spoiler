@@ -1,5 +1,5 @@
 /*
-Spoiler plugin for TinyMCE 4 editor
+Spoiler plugin for TinyMCE 4/5 editor
 
 It adds special markup that in combination with a site-side JS script
 can create spoiler effect (hidden text that is shown on clik) on a web-page.
@@ -13,6 +13,12 @@ tinymce.PluginManager.add('spoiler', function(editor, url)
   var $ = editor.$;
   editor.contentCSS.push(url + '/css/spoiler.css');
   var spoilerCaption = editor.getParam('spoiler_caption', 'Spoiler!');
+
+  if (tinymce.majorVersion == 5)
+  {
+    editor.ui.registry.addIcon('addspoiler', '<svg width="24" height="24"><use xlink:href="' + url + '/img/spoiler_icons.svg#addspoiler"></use></svg>');
+    editor.ui.registry.addIcon('removespoiler', '<svg width="24" height="24"><use xlink:href="' + url + '/img/spoiler_icons.svg#removespoiler"></use></svg>');
+  }
 
   function addSpoiler()
   {
@@ -70,28 +76,58 @@ tinymce.PluginManager.add('spoiler', function(editor, url)
     });
   });
 
-  editor.addButton('spoiler-add',
+  if (tinymce.majorVersion == 4)
   {
-    tooltip: 'Add spoiler',
-    image: url + '/img/eye-blocked.png',
-    onclick: addSpoiler
-  });
-  editor.addMenuItem('spoiler-add',
+    editor.addButton('spoiler-add',
+    {
+      tooltip: 'Add spoiler',
+      image: url + '/img/eye-blocked.png',
+      onclick: addSpoiler
+    });
+   editor.addMenuItem('spoiler-add',
+    {
+      text: 'Add spoiler',
+      context: 'format',
+      onclick: addSpoiler
+    });
+    editor.addButton('spoiler-remove',
+    {
+      tooltip: 'Remove spoiler',
+      image: url + '/img/eye-plus.png',
+      onclick: removeSpoiler
+    });
+    editor.addMenuItem('spoiler-remove',
+    {
+      text: 'Remove spoiler',
+      context: 'format',
+      onclick: removeSpoiler
+    });
+  }
+  else
   {
-    text: 'Add spoiler',
-    context: 'format',
-    onclick: addSpoiler
-  });
-  editor.addButton('spoiler-remove',
-  {
-    tooltip: 'Remove spoiler',
-    image: url + '/img/eye-plus.png',
-    onclick: removeSpoiler
-  });
-  editor.addMenuItem('spoiler-remove',
-  {
-    text: 'Remove spoiler',
-    context: 'format',
-    onclick: removeSpoiler
-  });
+    editor.ui.registry.addButton('spoiler-add',
+    {
+      tooltip: 'Add spoiler',
+      icon: 'addspoiler',
+      onAction: addSpoiler
+    });
+   editor.ui.registry.addMenuItem('spoiler-add',
+    {
+      text: 'Add spoiler',
+      context: 'format',
+      onAction: addSpoiler
+    });
+    editor.ui.registry.addButton('spoiler-remove',
+    {
+      tooltip: 'Remove spoiler',
+      icon: 'removespoiler',
+      onAction: removeSpoiler
+    });
+    editor.ui.registry.addMenuItem('spoiler-remove',
+    {
+      text: 'Remove spoiler',
+      context: 'format',
+      onAction: removeSpoiler
+    });
+  }
 });

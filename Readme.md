@@ -1,11 +1,11 @@
-# TinyMCE 4 Spoiler Plugin
+# TinyMCE 4/5 Spoiler Plugin
 
-This is a spoiler plugin for [TinyMCE 4](https://www.tinymce.com/) web content editor. It allows to insert spoiler
+This is a spoiler plugin for [TinyMCE 4/5](https://www.tiny.cloud/) web content editor. It allows to insert spoiler
 blocks into authored text, that is, blocks of text that are initially collapsed and can be expanded by mouse click.
 
 ## Installation
 
-Copy `spoiler` folder to TinyMCE 4 `plugins` folder and add the necessary options to TinyMCE 4 configuration.
+Copy `spoiler` folder to TinyMCE `plugins` folder and add the necessary options to TinyMCE configuration.
 Example configuration:
 
 ```javascript
@@ -18,7 +18,7 @@ tinymce.init({
 ```
 
 Alternatively, you can place the plugin outside the TinyMCE folder
-and add the plugin using `external_plugins` option of TinyMCE 4:
+and add the plugin using `external_plugins` option of TinyMCE:
 
 ```javascript
 tinymce.init({
